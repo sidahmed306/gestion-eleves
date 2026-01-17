@@ -2,7 +2,7 @@ import { supabase } from './supabaseClient'
 
 // Fonction factice pour compatibilité
 export const initDatabase = async () => {
-  console.log('Connexion Supabase initialisée')
+  console.log('Connexion Supabase active')
   return true
 }
 
@@ -54,8 +54,6 @@ export const getPaiements = async () => {
   const { data, error } = await supabase
     .from('paiements')
     .select('*')
-    // On trie par ID décroissant pour voir les derniers ajouts en premier
-    // Si tu as une colonne 'created_at', change 'id' par 'created_at'
     .order('id', { ascending: false }) 
 
   if (error) {
@@ -92,7 +90,8 @@ export const deletePaiement = async (id) => {
   if (error) throw error
 }
 
-// --- NIVEAUX ---
+// --- NIVEAUX (Remis comme tu voulais) ---
 export const getNiveaux = () => {
-  return ['1ère Année', '2ème Année', '3ème Année', '4ème Année', '5ème Année', '6ème Année']
+  // C'est ici qu'on remet tes classes exactes
+  return ['BAC D', 'BAC C', 'BAC A', 'BAC B', 'Seconde', 'Première', 'Terminale', 'Autre']
 }
